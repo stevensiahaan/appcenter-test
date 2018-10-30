@@ -30,7 +30,6 @@ public class MainActivity extends BaseActivity {
 
     private Button btnClickMe, btnErrors;
     private String sampleText = null;
-    private TextView txtHelloWorld;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
