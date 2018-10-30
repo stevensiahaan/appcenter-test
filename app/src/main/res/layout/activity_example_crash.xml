@@ -10,14 +10,14 @@
         android:id="@+id/txtTextHello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello" />
+        android:text="@string/hello" />
 
     <Button
         android:id="@+id/btnCrash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Crash"
+        android:text="@string/crash"
         android:textAllCaps="false" />
 
 </RelativeLayout>

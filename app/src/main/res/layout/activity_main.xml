@@ -10,14 +10,14 @@
         android:id="@+id/txtHelloWorld"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="@string/hello" />
 
     <Button
         android:id="@+id/btnClickMe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Click Me Analytics"
+        android:text="@string/clickMe"
         android:textAllCaps="false" />
 
     <Button
@@ -27,7 +27,7 @@
         android:layout_below="@id/btnClickMe"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="Set Error"
+        android:text="@string/setError"
         android:textAllCaps="false" />
 
 </RelativeLayout>
