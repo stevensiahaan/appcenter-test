@@ -129,8 +129,4 @@ public class MainActivity extends BaseActivity {
             }
         };
     }
-
-    private void showToast(String input) {
-        Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
-    }
 }
