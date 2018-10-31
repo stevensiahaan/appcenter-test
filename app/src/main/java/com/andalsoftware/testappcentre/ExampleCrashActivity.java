@@ -23,7 +23,7 @@ public class ExampleCrashActivity extends BaseActivity {
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ExampleCrashActivity.this, getString(R.string.OK), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ExampleCrashActivity.this, getString(R.string.hello), Toast.LENGTH_SHORT).show();
             }
         });
         btnCrash.setOnClickListener(new View.OnClickListener() {
