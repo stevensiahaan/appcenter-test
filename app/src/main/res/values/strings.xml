@@ -6,6 +6,10 @@
     <string name="clickMe">Click Me Analytics</string>
     <string name="setError">Set Error</string>
 
+    <string name="msg_please_fill">Please fill the form</string>
+    <string name="msg_login_success">Login Succes</string>
+    <string name="msg_login_failed">Login Failed</string>
+
     <string name="title_test_crash" tools:ignore="MissingTranslation">Test crash</string>
     <string name="description_test_crash" tools:ignore="MissingTranslation">Using Crash.generateTestCrash() API</string>
     <string name="title_crash_divide_by_0" tools:ignore="MissingTranslation">Divide by 0</string>

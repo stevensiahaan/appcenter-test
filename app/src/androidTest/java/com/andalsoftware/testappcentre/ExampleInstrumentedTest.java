@@ -1,6 +1,7 @@
 package com.andalsoftware.testappcentre;
 
 import android.support.test.espresso.Espresso;
+import android.support.test.espresso.action.ViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -8,8 +9,16 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static android.app.PendingIntent.getActivity;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -26,5 +35,20 @@ public class ExampleInstrumentedTest {
     public void navigateBetweenPage() {
         Espresso.onView(withId(R.id.btnClickMe)).perform(click());
         Espresso.onView(withId(R.id.btnOK)).perform(click());
+    }
+
+    private String username_tobe_typed="admin";
+    private String correct_password ="admin123";
+    private String wrong_password = "admin";
+
+
+    @Test
+    public void loginPageTest()
+    {
+        Espresso.onView(withId(R.id.btnLogin)).perform(click());
+        Espresso.onView((withId(R.id.editTextUsername))).perform(ViewActions.typeText(username_tobe_typed));
+        Espresso.onView(withId(R.id.editTextPassword)).perform(ViewActions.typeText(correct_password));
+        Espresso.onView(withId(R.id.btnLoginUser)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.msg_login_success)).inRoot(withDecorView(not(mActivityRule.getActivity().getWindow().getDecorView()))) .check(matches(isDisplayed()));
     }
 }
