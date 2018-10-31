@@ -5,6 +5,7 @@
     <string name="hello">Hello</string>
     <string name="clickMe">Click Me Analytics</string>
     <string name="setError">Set Error</string>
+    <string name="OK">OK</string>
 
     <string name="msg_please_fill">Please fill the form</string>
     <string name="msg_login_success">Login Succes</string>
