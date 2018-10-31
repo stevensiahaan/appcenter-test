@@ -2,15 +2,11 @@ package com.andalsoftware.testappcentre;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.microsoft.appcenter.AppCenter;
@@ -21,14 +17,13 @@ import com.microsoft.appcenter.crashes.ingestion.models.ErrorAttachmentLog;
 import com.microsoft.appcenter.crashes.model.ErrorReport;
 import com.microsoft.appcenter.push.Push;
 
-import java.io.ByteArrayOutputStream;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends BaseActivity {
 
-    private Button btnClickMe, btnErrors;
+    private Button btnClickMe, btnErrors, btnLogin;
     private String sampleText = null;
 
     @Override
@@ -41,6 +36,8 @@ public class MainActivity extends BaseActivity {
 
         btnClickMe = (Button) findViewById(R.id.btnClickMe);
         btnErrors = (Button) findViewById(R.id.btnErrors);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+
 
         btnClickMe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +58,14 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
                 Analytics.trackEvent("Error Button Clicked");
                 Crashes.generateTestCrash();
+            }
+        });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
     }
