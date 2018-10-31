@@ -24,10 +24,6 @@ import static org.hamcrest.Matchers.not;
 @RunWith(AndroidJUnit4.class)
 public class OpenAnalyticsTest {
 
-    private String username_tobe_typed="admin";
-    private String correct_password ="admin123";
-    private String wrong_password = "admin";
-
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
     @Rule
@@ -38,12 +34,21 @@ public class OpenAnalyticsTest {
     {
         Espresso.onView(withId(R.id.btnClickMe)).perform(click());
         Espresso.onView((withId(R.id.btnOK))).perform(click());
-        Espresso.onView(withText(R.string.OK)).inRoot(withDecorView(not(mActivityRule.getActivity().getWindow().getDecorView()))) .check(matches(isDisplayed()));
+        delay();
+        Espresso.onView(withText(R.string.hello)).inRoot(withDecorView(not(mActivityRule.getActivity().getWindow().getDecorView()))) .check(matches(isDisplayed()));
     }
 
     @After
-    public void TearDown(){
-        reportHelper.label("Stopping App");
+    public void afterOpenAnalytic(){
+        reportHelper.label("Stopping App Open Analytic");
+    }
+
+    private void delay(){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
