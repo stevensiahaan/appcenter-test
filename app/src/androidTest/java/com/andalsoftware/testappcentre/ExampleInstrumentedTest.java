@@ -5,6 +5,10 @@ import android.support.test.espresso.action.ViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.microsoft.appcenter.espresso.Factory;
+import com.microsoft.appcenter.espresso.ReportHelper;
+
+import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,13 +33,9 @@ import static org.hamcrest.Matchers.not;
 public class ExampleInstrumentedTest {
 
     @Rule
+    public ReportHelper reportHelper = Factory.getReportHelper();
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
 
-    @Test
-    public void navigateBetweenPage() {
-        Espresso.onView(withId(R.id.btnClickMe)).perform(click());
-        Espresso.onView(withId(R.id.btnOK)).perform(click());
-    }
 
     private String username_tobe_typed="admin";
     private String correct_password ="admin123";
@@ -50,5 +50,10 @@ public class ExampleInstrumentedTest {
         Espresso.onView(withId(R.id.editTextPassword)).perform(ViewActions.typeText(correct_password));
         Espresso.onView(withId(R.id.btnLoginUser)).perform(ViewActions.click());
         Espresso.onView(withText(R.string.msg_login_success)).inRoot(withDecorView(not(mActivityRule.getActivity().getWindow().getDecorView()))) .check(matches(isDisplayed()));
+    }
+
+    @After
+    public void TearDown(){
+        reportHelper.label("Stopping App");
     }
 }
