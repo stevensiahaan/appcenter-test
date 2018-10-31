@@ -32,15 +32,14 @@ import static org.hamcrest.Matchers.not;
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
 
-    @Rule
-    public ReportHelper reportHelper = Factory.getReportHelper();
-    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
-
-
     private String username_tobe_typed="admin";
     private String correct_password ="admin123";
     private String wrong_password = "admin";
 
+    @Rule
+    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
+    @Rule
+    public ReportHelper reportHelper = Factory.getReportHelper();
 
     @Test
     public void loginPageTest()
@@ -56,4 +55,5 @@ public class ExampleInstrumentedTest {
     public void TearDown(){
         reportHelper.label("Stopping App");
     }
+
 }
